@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Строительные краны</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/scc/technic.css">
+</head>
+<body>
+
+    <header>
+        <h1>Ямобуры</h1>
+        <nav>
+            <div class="button">
+            <a href="/index.html">Главная</a>
+            <a href="#about">О кранах</a>
+            <a href="#gallery">Галерея</a>
+            <a href="#reviews">Отзывы</a>
+            <button id="contact-btn">Связаться с нами</button> <!-- Кнопка вместо ссылки -->
+        </div>
+        </nav>
+    </header>
+    
+    <div class="content" id="about">
+        <h2>О Ямобурах</h2>
+        <p>Конструкция: Обычно ямобрах имеет поворотную стрелу, что позволяет ему работать в ограниченных пространствах, что особенно важно в условиях городского строительства.</p>
+        <p></p>
+    </div>
+    
+    <div class="content" id="gallery">
+        <h2>Галерея</h2>
+        <div class="gallery">
+            <img src="" alt="Строительный кран 1">
+            <img src="" alt="Строительный кран 2">
+            <img src="" alt="Строительный кран 3">
+        </div>
+    </div>
+    <div class="content" id="reviews">
+        <h2>предназначение ямобуров</h2>
+        <p>Применение: Они востребованы на строительных объектах, таких как жилые и коммерческие здания, мосты, дороги и другие инфраструктурные проекты.</p>
+        <p>Многофункциональность: Ямобрахи могут использоваться для различных задач, включая подъем строительных материалов (кирпичи, блоки, стальные конструкции) и заливку бетона.</p>
+    </div>
+    
+    <section id="feedback">
+        <h2 class="feedback">Оставьте свой отзыв</h2> 
+    
+    <div class="review-form">
+        <input type="text" id="review-name" placeholder="Ваше имя" required>
+        <textarea id="review-text" placeholder="Ваш отзыв" required></textarea>
+        <button id="submit-review">Отправить отзыв</button>
+    </div>
+    
+    <div class="reviews" id="reviews-section">
+        <h3 class="feedback-live">Отзывы:</h3> 
+        <!-- Отзывы будут добавляться сюда -->
+    </div>
+    </section>
+    <script>
+    document.getElementById('submit-review').addEventListener('click', function() {
+        const name = document.getElementById('review-name').value;
+        const text = document.getElementById('review-text').value;
+    
+        if (name && text) {
+            const reviewsSection = document.getElementById('reviews-section');
+    
+            // Создание нового элемента отзыва
+            const reviewDiv = document.createElement('div');
+            reviewDiv.className = 'review';
+            reviewDiv.innerHTML = `<strong>${name}</strong><p>${text}</p>`;
+    
+            // Добавление нового отзыва в раздел отзывов
+            reviewsSection.appendChild(reviewDiv);
+    
+            // Очистка полей ввода
+            document.getElementById('review-name').value = '';
+            document.getElementById('review-text').value = '';
+        } else {
+            alert('Пожалуйста, заполните все поля.');
+        }
+    });
+    </script>
+    
+<footer id="footer">
+    <div class="wrapper footer-wrap">
+        <div class="footer-logo logo">
+        </div>
+        <div class="footer-contacts">
+            <p>&copy; 2025 Аренда спецтехники. Все права защищены.</p>
+        </div>
+    </div> 
+ 
+</footer>
+
+   <!-- Модальное окно -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Связаться с нами</h2>
+            <form id="contact-form">
+                <div class="form-group">
+                   <label for="name">Ваше имя:</label>
+                    <input type="text" id="name" placeholder="Введите ваше имя" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Номер телефона:</label>
+                     <input type="tel" id="phone" placeholder="Введите номер телефона" required>
+                 </div>
+               <button type="submit" class="btn">Отправить</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('modal');
+    const contactButton = document.getElementById('contact-btn');
+    const closeButton = document.querySelector('.close');
+
+
+    contactButton.addEventListener('click', function() {
+        modal.style.display = 'block';
+    });
+
+
+    closeButton.addEventListener('click', function() {
+        modal.style.display = 'none';
+    });
+
+
+    window.addEventListener('click', function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    });
+
+
+    const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+
+        console.log("Имя: " + name + ", Телефон: " + phone)
+
+
+        modal.style.display = 'none';
+    });
+});
+    </script>
+</body>
+</html>
