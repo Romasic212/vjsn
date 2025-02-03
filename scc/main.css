@@ -78,7 +78,7 @@ nav a:hover {
 
 .container {
     display: flex;
-    max-width: 100%;
+    max-width: 100hv;
     margin: 20px 15px;
     display: all;
     overflow: hidden;
@@ -116,7 +116,7 @@ nav a:hover {
 }
 
 .service img {
-    max-width: 100%;
+    max-width: 100hv;
     height: auto;
     border-radius: 5px;
     transition: transform 0.3s;
